@@ -12,23 +12,9 @@ function writePageLoad() {
   });
 }
  
-function getData() {
-  var date = document.getElementById("date").value;
-  var uniformtype = document.getElementById("uniformtype").value;
-  var datetag = document.getElementById("date");
-  var uniformtag = document.getElementById("uniformtype");
-  datetag.value = "";
-  uniformtag.value = "";
-  var data = {
-    Date: date,
-    Uniform: uniformtype
-  }
-  sendData("/nextformation", data);
-}
- 
-function setData() {
-  var array = readMessage("nextformation/", function (array) {
-    document.getElementById("read").innerHTML = "<h3>The next formation is on " + array.Date + " in the Gym. You are to wear the " + array.Uniform + " uniform</h3>";
+function setData(ref, element, read1) {
+  var array = readMessage(ref, function (array) {
+    document.getElementById(element).innerHTML = array[read1]
   });
 }
  
@@ -45,14 +31,3 @@ function readMessage(ref, callback) {
     callback(array)
   });
 }
- 
-/* function readMessage() {
-    var nextformation = firebase.database().ref("nextformation/");
-    nextformation.on("value", function(data) {
-        var array = data.val();
-        var readtag = document.getElementById("read")
-        readtag.innerHTML = "<h3>The next formation is on " + array.Date + " in the Gym. You are to wear the " + array.Uniform + " uniform</h3>";
-    }, function (error) {
-         console.log("Error: " + error.code);
-});
-} */
