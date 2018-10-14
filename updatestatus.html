@@ -1,0 +1,57 @@
+<html>
+<head>
+	<title>Testing Firebase Stuff....</title>
+<script src="js/script.js"></script>
+<script src="https://www.gstatic.com/firebasejs/5.5.3/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyB0keF26uKYDOR2o-8HYkgoOGWhsPyHdkg",
+    authDomain: "jrotc-database.firebaseapp.com",
+    databaseURL: "https://jrotc-database.firebaseio.com",
+    projectId: "jrotc-database",
+    storageBucket: "jrotc-database.appspot.com",
+    messagingSenderId: "787128694744"
+  };
+  firebase.initializeApp(config);
+</script>
+  <script>
+  function onLoad() {
+    writePageLoad();
+   var x = document.getElementById("write-box")
+   x.style.display = 'none' 
+  }
+  var provider = new firebase.auth.GoogleAuthProvider();
+  firebase.auth().signInWithPopup(provider).then(function(result) {
+  // This gives you a Google Access Token. You can use it to access the Google API.
+  var token = result.credential.accessToken;
+  // The signed-in user info.
+  var user = result.user;
+  var x = document.getElementById("write-box")
+  x.style.display = 'block'
+  // ...
+}).catch(function(error) {
+  // Handle Errors here.
+  var errorCode = error.code;
+  var errorMessage = error.message;
+  // The email of the user's account used.
+  var email = error.email;
+  // The firebase.auth.AuthCredential type that was used.
+  var credential = error.credential;
+      console.log(errorCode)
+    console.log(errorMessage)
+  // ...
+});
+  </script>
+</head>
+<body onload="javascript:onLoad()">
+	<br> 
+  <div id="write-box">
+	Next Formation Update Form:<br>
+  Uniform Type:
+  <input type="text" id="uniformtype"><br>
+	Formation Date:
+  <input type="text" id="date"><br>
+	<input type="submit" value="Send" onclick="getData()">
+  </div>
+    </body>
