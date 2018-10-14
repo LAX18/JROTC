@@ -17,7 +17,7 @@ function writePageLoad() {
      cupSend();
     }
   });
-  document.getElementById("alpha").addEventListener("keyup", function(event) {
+  document.getElementById("bravo").addEventListener("keyup", function(event) {
     if (event.key === "Enter") { // event.keyCode is deprecated
      cupSend();
     }
