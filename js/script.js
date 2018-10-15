@@ -12,6 +12,16 @@ function writePageLoad() {
       formationSend();
     }
   });
+  document.getElementById("information").addEventListener("keyup", function(event) {
+    if (event.key === "Enter") { // event.keyCode is deprecated
+      formationSend();
+    }
+  });
+  document.getElementById("time").addEventListener("keyup", function(event) {
+    if (event.key === "Enter") { // event.keyCode is deprecated
+      formationSend();
+    }
+  });
   document.getElementById("alpha").addEventListener("keyup", function(event) {
     if (event.key === "Enter") { // event.keyCode is deprecated
      cupSend();
