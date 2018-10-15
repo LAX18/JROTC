@@ -56,7 +56,11 @@
   <input type="text" id="uniformtype"><br>
 	Formation Date:
   <input type="text" id="date"><br>
-	<input type="submit" value="Send" onclick="var array = {Date: document.getElementById('date').value, Uniform: document.getElementById('uniformtype').value};sendData('nextformation/', array);document.getElementById('date').value = '';document.getElementById('uniformtype').value = '';">
+	Time of Formation:<br>
+   <input type="text" id="time"><br>
+	Location (i.e Gym, etc)<br>
+   <input type="text" id="location"><br>
+	<input type="submit" value="Send" onclick="var array = {Date: document.getElementById('date').value, Uniform: document.getElementById('uniformtype').value, Location: document.GetElementByID('location').value, Time: document.GetElementByID('time').value};sendData('nextformation/', array);document.getElementById('date').value = '';document.getElementById('uniformtype').value = '';;document.getElementById('time').value = '';document.getElementById('location').value = ''">
   <br>
   <br>
   Commanders Cup Points Update:<br>
