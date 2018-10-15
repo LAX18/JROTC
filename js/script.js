@@ -1,49 +1,30 @@
 // JROTC Firebase Interaction Script
 
 // Key Handles (allows enter key to be pressed to send)
-function writePageLoad() {
-  document.getElementById("date").addEventListener("keyup", function(event) {
+
+ 
+// Key Handle Function
+function setKeyHandle (element, name) {
+  document.getElementById(element).addEventListener("keyup", function(event) {
     if (event.key === "Enter") { // event.keyCode is deprecated
-      formationSend();
-    }
-  });
-  document.getElementById("uniformtype").addEventListener("keyup", function(event) {
-    if (event.key === "Enter") { // event.keyCode is deprecated
-      formationSend();
-    }
-  });
-  document.getElementById("information").addEventListener("keyup", function(event) {
-    if (event.key === "Enter") { // event.keyCode is deprecated
-      formationSend();
-    }
-  });
-  document.getElementById("time").addEventListener("keyup", function(event) {
-    if (event.key === "Enter") { // event.keyCode is deprecated
-      formationSend();
-    }
-  });
-  document.getElementById("alpha").addEventListener("keyup", function(event) {
-    if (event.key === "Enter") { // event.keyCode is deprecated
-     cupSend();
-    }
-  });
-  document.getElementById("bravo").addEventListener("keyup", function(event) {
-    if (event.key === "Enter") { // event.keyCode is deprecated
-     cupSend();
+      name();
     }
   });
 }
- 
 // Key handle sending functions
 
 function formationSend() {
   var array = {
         Date: document.getElementById("date").value,
-        Uniform: document.getElementById("uniformtype").value
+        Uniform: document.getElementById("uniformtype").value,
+        Location: document.getElementById('location').value,
+        Time: document.getElementById('time').value
       }
       sendData("nextformation/", array);
   document.getElementById('date').value = '';
   document.getElementById('uniformtype').value = '';
+  document.getElementById('time').value = '';
+  document.getElementById('location').value = '';
 }
 function cupSend() {
   var array = {
