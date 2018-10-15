@@ -3,6 +3,13 @@
 	<title>Reading Stuffs</title>
 	<script src="https://www.gstatic.com/firebasejs/5.5.3/firebase.js"></script>
   <script src="js/script.js"></script>
+	<link href="https://fonts.googleapis.com/css?family=Niramit" rel="stylesheet">
+	<style>
+		body {font-family: 'Niramit', sans-serif;
+		margin: auto;
+	  	width: 100%;
+		}
+	</style>
 <script>
   // Initialize Firebase
   var config = {
@@ -16,7 +23,7 @@
   firebase.initializeApp(config);
 </script>
 </head>
-<body onload="javascript:setData('nextformation','date','Date');setData('nextformation','uniform','Uniform')">
-  The next formation is on <span id="date"> loading... </span> in the Gym. You are to wear the <span id="uniform"> loading... </span> uniform.
+<body onload="javascript:setData('nextformation','date','Date');setData('nextformation','uniform','Uniform');setData('nextformation','location','Location')">
+	The next formation is on <b><span id="date"> loading... </span></b> in the <b><span id="location">loading...</span></b>. You are to wear the <b><span id="uniform"> loading... </span> uniform.</b>
 
 </body>
