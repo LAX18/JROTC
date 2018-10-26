@@ -1,5 +1,21 @@
 // JROTC Firebase Interaction Script
-
+// Specific Webpage Scripts
+function formationOnLoad() {
+      var data = readData("nextEvent", function (data) {
+       if (data.Event == "UNI") {
+         console.log(data.Event)
+         document.getElementById("box").innerHTML = 'The next uniform day is on <b><span id="date">loading...</span></b>. You are to wear the <b><span id="uniform">loading...</span></b> uniform.';
+         setData("nextEvent","date","Date");
+         setData("nextEvent","uniform","Uniform");
+       } else {
+         document.getElementById("box").innerHTML = 'The next formation is on <b><span id="date"> loading... </span></b> in the <b><span id="location">loading...</span></b> during <b><span id="time">loading...</span></b>. You are to wear the <b><span id="uniform"> loading... </span> uniform.</b>';
+         setData("nextEvent","date","Date");
+         setData("nextEvent","location","Location");
+         setData("nextEvent","time","Time");
+         setData("nextEvent","uniform","Uniform");
+       }
+                                                  })
+    }
 // Key Handles (allows enter key to be pressed to send)
 
  
@@ -13,18 +29,20 @@ function setKeyHandle (element, name) {
 }
 // Key handle sending functions
 
-function formationSend() {
+function eventSend() {
   var array = {
+        Event: document.getElementById("event").value,
         Date: document.getElementById("date").value,
         Uniform: document.getElementById("uniformtype").value,
         Location: document.getElementById('location').value,
         Time: document.getElementById('time').value
       }
-      sendData("nextformation/", array);
+      sendData("nextEvent/", array);
   document.getElementById('date').value = '';
   document.getElementById('uniformtype').value = '';
   document.getElementById('time').value = '';
   document.getElementById('location').value = '';
+  document.getElementById('event').value = '';
 }
 function cupSend() {
   var array = {

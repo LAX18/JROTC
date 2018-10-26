@@ -24,7 +24,9 @@
   firebase.initializeApp(config);
 </script>
 </head>
-<body onload="javascript:setData('nextformation','date','Date');setData('nextformation','uniform','Uniform');setData('nextformation','location','Location');setData('nextformation','time','Time')">
-The next formation is on <b><span id="date"> loading... </span></b> in the <b><span id="location">loading...</span></b> during <b><span id="time">loading...</span></b>. You are to wear the <b><span id="uniform"> loading... </span> uniform.</b>
+<body onload="formationOnLoad()">
+<div id="box">
+  Loading...
+  </div>
 
 </body>
