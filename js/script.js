@@ -7,6 +7,8 @@ function formationOnLoad() {
          document.getElementById("box").innerHTML = 'The next uniform day is on <b><span id="date">loading...</span></b>. You are to wear the <b><span id="uniform">loading...</span></b> uniform.';
          setData("nextEvent","date","Date");
          setData("nextEvent","uniform","Uniform");
+       } else if (data.Event == "CUS") {
+         setData("nextEvent","box","Custom")
        } else {
          document.getElementById("box").innerHTML = 'The next formation is on <b><span id="date"> loading... </span></b> in the <b><span id="location">loading...</span></b> during <b><span id="time">loading...</span></b>. You are to wear the <b><span id="uniform"> loading... </span> uniform.</b>';
          setData("nextEvent","date","Date");
@@ -19,14 +21,37 @@ function formationOnLoad() {
 // Key Handles (allows enter key to be pressed to send)
 
  
-// Key Handle Function
+// Key Handle Function(s)
 function setKeyHandle (element, name) {
-  document.getElementById(element).addEventListener("keyup", function(event) {
+  document.getElementById(element).addEventListener("onchange", function(event) {
     if (event.key === "Enter") { // event.keyCode is deprecated
       name();
     }
   });
 }
+function updatePage() {
+    var data = document.getElementById("event").value
+    if (data == "UNI") {
+      document.getElementById("locationbox").style.display = 'none' 
+      document.getElementById("timebox").style.display = 'none' 
+      document.getElementById("messagebox").style.display = 'none'
+      document.getElementById("datebox").style.display = 'block' 
+      document.getElementById("uniformbox").style.display = 'block'
+    } else if (data == "FOR") {
+      document.getElementById("locationbox").style.display = 'block' 
+      document.getElementById("timebox").style.display = 'block' 
+      document.getElementById("messagebox").style.display = 'block'
+      document.getElementById("datebox").style.display = 'block' 
+      document.getElementById("uniformbox").style.display = 'block'
+    } else if (data == "CUS") {
+      document.getElementById("locationbox").style.display = 'none' 
+      document.getElementById("timebox").style.display = 'none' 
+      document.getElementById("datebox").style.display = 'none' 
+      document.getElementById("uniformbox").style.display = 'none' 
+      document.getElementById("messagebox").style.display = 'block'
+    }
+  }
+
 // Key handle sending functions
 
 function eventSend() {
@@ -35,7 +60,8 @@ function eventSend() {
         Date: document.getElementById("date").value,
         Uniform: document.getElementById("uniformtype").value,
         Location: document.getElementById('location').value,
-        Time: document.getElementById('time').value
+        Time: document.getElementById('time').value,
+        Custom: document.getElementById('custommessage').value
       }
       sendData("nextEvent/", array);
   document.getElementById('date').value = '';
@@ -43,6 +69,7 @@ function eventSend() {
   document.getElementById('time').value = '';
   document.getElementById('location').value = '';
   document.getElementById('event').value = '';
+  document.getElementById('customdata').value = '';
 }
 function cupSend() {
   var array = {

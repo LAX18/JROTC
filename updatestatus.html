@@ -64,19 +64,28 @@
   </div>
   <div id="write-box">
 	Next Battalion Event Update:<br>
-  Event Type: (UNI = Uniform only, FOR = Formation)
- <input type="text" id="event"><br>
-  Uniform Type:
-  <input type="text" id="uniformtype"><br>
-	Date:
-  <input type="text" id="date"><br>
-	<div id="section1">
+  Event Type:
+ <select id="event" onchange="updatePage()">
+  <option value="FOR" selected>Formation</option>
+  <option value="UNI">Uniform Only</option>
+  <option value="CUS">Custom Message</option>
+    </select><br>
+ <div id="uniformbox">
+   Uniform Type:
+   <input type="text" id="uniformtype"><br></div>
+<div id="datebox">
+  Date:
+  <input type="text" id="date"><br></div>
+  <div id="timebox">
     Time of Formation:
-   <input type="text" id="time"><br>
-	Location (i.e Gym, etc):
+    <input type="text" id="time"><br></div>
+	<div id="locationbox">
+    Location (i.e Gym, etc):
     <input type="text" id="location"><br></div>
+    <div id="messagebox">
+      Custom Message:
+      <input type="text" id="custommessage"><br></div>
 	<input type="button" value="Update" onclick="var array = {Date: document.getElementById('date').value, Uniform: document.getElementById('uniformtype').value, Location: document.getElementById('location').value, Time: document.getElementById('time').value};sendData('nextformation/', array);document.getElementById('date').value = '';document.getElementById('uniformtype').value = '';document.getElementById('time').value = '';document.getElementById('location').value = '';">
-  </div>
   <br>
   <br>
   Commanders Cup Points Update:<br>
