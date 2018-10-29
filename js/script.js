@@ -68,8 +68,8 @@ function eventSend() {
   document.getElementById('uniformtype').value = '';
   document.getElementById('time').value = '';
   document.getElementById('location').value = '';
-  document.getElementById('event').value = '';
-  document.getElementById('customdata').value = '';
+  //document.getElementById('event').value = '';
+  document.getElementById('custommessage').value = '';
 }
 function cupSend() {
   var array = {
