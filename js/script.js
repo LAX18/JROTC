@@ -1,7 +1,7 @@
 // JROTC Firebase Interaction Script
 // Specific Webpage Scripts
-function formationOnLoad() {
-      var data = readData("nextEvent", function (data) {
+function statusView () {
+  var data = readData("nextEvent", function (data) {
        if (data.Event == "UNI") {
          console.log(data.Event)
          document.getElementById("box").innerHTML = 'The next uniform day is on <b><span id="date">loading...</span></b>. You are to wear the <b><span id="uniform">loading...</span></b> uniform. There is no formation.';
@@ -9,15 +9,17 @@ function formationOnLoad() {
          setData("nextEvent","uniform","Uniform");
        } else if (data.Event == "CUS") {
          setData("nextEvent","box","Custom")
-       } else {
+       } else if (data.Event == "FOR") {
          document.getElementById("box").innerHTML = 'The next formation is on <b><span id="date"> loading... </span></b> in the <b><span id="location">loading...</span></b> during <b><span id="time">loading...</span></b>. You are to wear the <b><span id="uniform"> loading... </span> uniform.</b>';
          setData("nextEvent","date","Date");
          setData("nextEvent","location","Location");
          setData("nextEvent","time","Time");
          setData("nextEvent","uniform","Uniform");
        }
-                                                  })
-    }
+})}
+function formationOnLoad() {
+      statusView();
+      setInterval(statusView, 30000)}
 // Key Handles (allows enter key to be pressed to send)
 
  
