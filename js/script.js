@@ -4,7 +4,7 @@ function formationOnLoad() {
       var data = readData("nextEvent", function (data) {
        if (data.Event == "UNI") {
          console.log(data.Event)
-         document.getElementById("box").innerHTML = 'The next uniform day is on <b><span id="date">loading...</span></b>. You are to wear the <b><span id="uniform">loading...</span></b> uniform.';
+         document.getElementById("box").innerHTML = 'The next uniform day is on <b><span id="date">loading...</span></b>. You are to wear the <b><span id="uniform">loading...</span></b> uniform. There is no formation.';
          setData("nextEvent","date","Date");
          setData("nextEvent","uniform","Uniform");
        } else if (data.Event == "CUS") {
@@ -40,7 +40,7 @@ function updatePage() {
     } else if (data == "FOR") {
       document.getElementById("locationbox").style.display = 'block' 
       document.getElementById("timebox").style.display = 'block' 
-      document.getElementById("messagebox").style.display = 'block'
+      document.getElementById("messagebox").style.display = 'none'
       document.getElementById("datebox").style.display = 'block' 
       document.getElementById("uniformbox").style.display = 'block'
     } else if (data == "CUS") {

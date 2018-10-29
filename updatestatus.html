@@ -23,7 +23,7 @@
    });
    setKeyHandle("uniformtype",eventSend);
     setKeyHandle("date",eventSend);
-    setKeyHandle("time",eventSend);
+  //  setKeyHandle("time",eventSend);
     setKeyHandle("location",eventSend);
     setKeyHandle("alpha",cupSend);
     setKeyHandle("bravo",cupSend);
@@ -72,10 +72,15 @@
     </select><br>
  <div id="uniformbox">
    Uniform Type:
-   <input type="text" id="uniformtype"><br></div>
+    <select id="uniformtype" onchange="updatePage()">
+  <option value="ACU" selected>ACU</option>
+  <option value="ASU (Class A)">ASU CA</option>
+  <option value="ASU (No Tie)">ASU (No Tie)</option>
+  <option value="T-Shirt" >T-Shirt</option>
+    </select><br></div>
 <div id="datebox">
   Date:
-  <input type="text" id="date"><br></div>
+  <input type="date" id="date"><br></div>
   <div id="timebox">
     Time of Formation:
     <input type="text" id="time"><br></div>
