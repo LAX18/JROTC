@@ -1,28 +1,31 @@
 <html>
+
 <head>
-	<title>Reading Stuffs</title>
-	<script src="https://www.gstatic.com/firebasejs/5.5.3/firebase.js"></script>
+  <title>Reading Stuffs</title>
+  <script src="https://www.gstatic.com/firebasejs/5.5.3/firebase.js"></script>
   <script src="js/script.js"></script>
-	<link href="https://fonts.googleapis.com/css?family=Niramit" rel="stylesheet">
-	<style>
-		body {font-family: 'Niramit', sans-serif;
-	        text-align: center;
-		font-size: 42pt;
-		}
-	</style>
-<script>
-  // Initialize Firebase
-  var config = {
-    apiKey: "AIzaSyB0keF26uKYDOR2o-8HYkgoOGWhsPyHdkg",
-    authDomain: "jrotc-database.firebaseapp.com",
-    databaseURL: "https://jrotc-database.firebaseio.com",
-    projectId: "jrotc-database",
-    storageBucket: "jrotc-database.appspot.com",
-    messagingSenderId: "787128694744"
-  };
-  firebase.initializeApp(config);
-</script>
+  <link href="https://fonts.googleapis.com/css?family=Niramit" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Niramit', sans-serif;
+      text-align: center;
+      font-size: 42pt;
+    }
+  </style>
+  <script>
+    // Initialize Firebase
+    var config = {
+      apiKey: "AIzaSyB0keF26uKYDOR2o-8HYkgoOGWhsPyHdkg",
+      authDomain: "jrotc-database.firebaseapp.com",
+      databaseURL: "https://jrotc-database.firebaseio.com",
+      projectId: "jrotc-database",
+      storageBucket: "jrotc-database.appspot.com",
+      messagingSenderId: "787128694744"
+    };
+    firebase.initializeApp(config);
+  </script>
 </head>
+
 <body onload="javascript:setData('commanderscup','bravo','Bravo')">
   <span id="bravo"> loading... </span>
 </body>
