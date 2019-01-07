@@ -1,4 +1,12 @@
 // JROTC Firebase Interaction Script
+// Time Change Function
+function timeConvert(timestring) {
+  var year = timestring.substring(0,4)
+  var month = timestring.substring(5,7)
+  var day = timestring.substring(8,10)
+  var fulldate = month+"-"+day+"-"+year
+  return fulldate
+}
 // Specific Webpage Scripts
 function timeChange() {
   var data = document.getElementById("time").value
@@ -71,7 +79,7 @@ function updatePage() {
 function eventSend() {
   var array = {
     Event: document.getElementById("event").value,
-    Date: document.getElementById("date").value,
+    Date: timeConvert(document.getElementById("date").value),
     Uniform: document.getElementById("uniformtype").value,
     Location: document.getElementById('location').value,
     Time: document.getElementById('time').value,
