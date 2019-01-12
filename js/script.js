@@ -1,5 +1,5 @@
 // JROTC Firebase Interaction Script
-// Time Change Function
+// Time Change Function (Global)
 function timeConvert(timestring) {
   var year = timestring.substring(0,4)
   var month = timestring.substring(5,7)
