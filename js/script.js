@@ -1,5 +1,5 @@
 // JROTC Firebase Interaction Script
-// Time Change Function (Global)
+// time Change Function (Global)
 function timeConvert(timestring) {
   var year = timestring.substring(0,4)
   var month = timestring.substring(5,7)
@@ -21,16 +21,16 @@ function statusView() {
   var data = readData("nextEvent", function(data) {
     if (data.Event == "UNI") {
       document.getElementById("box").innerHTML = 'The next uniform day is on <b><span id="datevalue">loading...</span></b>. You are to wear the <b><span id="uniformvalue">loading...</span></b> uniform. There is no formation.';
-      setData("nextEvent", "datevalue", "Date");
-      setData("nextEvent", "uniformvalue", "Uniform");
+      setData("nextEvent", "datevalue", "date");
+      setData("nextEvent", "uniformvalue", "uniform");
     } else if (data.Event == "CUS") {
-      setData("nextEvent", "box", "Custom")
+      setData("nextEvent", "box", "custom")
     } else if (data.Event == "FOR") {
       document.getElementById("box").innerHTML = 'The next formation is on <b><span id="datevalue"> loading... </span></b> in the <b><span id="locationvalue">loading...</span></b> during <b><span id="timevalue">loading...</span></b>. You are to wear the <b><span id="uniformvalue"> loading... </span> uniform.</b>';
-      setData("nextEvent", "datevalue", "Date");
-      setData("nextEvent", "locationvalue", "Location");
-      setData("nextEvent", "timevalue", "Time");
-      setData("nextEvent", "uniformvalue", "Uniform");
+      setData("nextEvent", "datevalue", "date");
+      setData("nextEvent", "locationvalue", "location");
+      setData("nextEvent", "timevalue", "time");
+      setData("nextEvent", "uniformvalue", "uniform");
     }
   })
 }
@@ -79,11 +79,11 @@ function updatePage() {
 function eventSend() {
   var array = {
     Event: document.getElementById("event").value,
-    Date: timeConvert(document.getElementById("date").value),
-    Uniform: document.getElementById("uniformtype").value,
-    Location: document.getElementById('location').value,
-    Time: document.getElementById('time').value,
-    Custom: document.getElementById('custommessage').value
+    date: timeConvert(document.getElementById("date").value),
+    uniform: document.getElementById("uniformtype").value,
+    location: document.getElementById('location').value,
+    time: document.getElementById('time').value,
+    custom: document.getElementById('custommessage').value
   }
   sendData("nextEvent/", array);
   document.getElementById('date').value = '';
