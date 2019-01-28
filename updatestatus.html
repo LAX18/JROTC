@@ -42,6 +42,9 @@
       x.style.display = 'block'
       document.getElementById("customtimebox").style.display = 'none'
       document.getElementById("infobox").innerHTML = ""
+      readData("nextevent", function(array) {
+               document.getElementById("event").value = array["event"]
+               })
       // ...
     }).catch(function(error) {
       // Handle Errors here.

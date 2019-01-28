@@ -1,5 +1,5 @@
 // JROTC Firebase Interaction Script
-// time Change Function (Global)
+// Time Change Function (Global)
 function timeConvert(timestring) {
   var year = timestring.substring(0,4)
   var month = timestring.substring(5,7)
@@ -7,6 +7,7 @@ function timeConvert(timestring) {
   var fulldate = month+"-"+day+"-"+year
   return fulldate
 }
+
 // Specific Webpage Scripts
 function timeChange() {
   var data = document.getElementById("time").value
@@ -18,19 +19,19 @@ function timeChange() {
 }
 
 function statusView() {
-  var data = readData("nextEvent", function(data) {
-    if (data.Event == "UNI") {
+  var data = readData("nextevent", function(data) {
+    if (data.event == "UNI") {
       document.getElementById("box").innerHTML = 'The next uniform day is on <b><span id="datevalue">loading...</span></b>. You are to wear the <b><span id="uniformvalue">loading...</span></b> uniform. There is no formation.';
-      setData("nextEvent", "datevalue", "date");
-      setData("nextEvent", "uniformvalue", "uniform");
-    } else if (data.Event == "CUS") {
-      setData("nextEvent", "box", "custom")
-    } else if (data.Event == "FOR") {
+      setData("nextevent", "datevalue", "date");
+      setData("nextevent", "uniformvalue", "uniform");
+    } else if (data.event == "CUS") {
+      setData("nextevent", "box", "custom")
+    } else if (data.event == "FOR") {
       document.getElementById("box").innerHTML = 'The next formation is on <b><span id="datevalue"> loading... </span></b> in the <b><span id="locationvalue">loading...</span></b> during <b><span id="timevalue">loading...</span></b>. You are to wear the <b><span id="uniformvalue"> loading... </span> uniform.</b>';
-      setData("nextEvent", "datevalue", "date");
-      setData("nextEvent", "locationvalue", "location");
-      setData("nextEvent", "timevalue", "time");
-      setData("nextEvent", "uniformvalue", "uniform");
+      setData("nextevent", "datevalue", "date");
+      setData("nextevent", "locationvalue", "location");
+      setData("nextevent", "timevalue", "time");
+      setData("nextevent", "uniformvalue", "uniform");
     }
   })
 }
@@ -44,7 +45,7 @@ function formationOnLoad() {
 
 // Key Handle Function(s)
 function setKeyHandle(element, name) {
-  document.getElementById(element).addEventListener("onchange", function(event) {
+  document.getElementById(element).addeventListener("onchange", function(event) {
     if (event.key === "Enter") { // event.keyCode is deprecated
       name();
     }
@@ -78,14 +79,14 @@ function updatePage() {
 
 function eventSend() {
   var array = {
-    Event: document.getElementById("event").value,
+    event: document.getElementById("event").value,
     date: timeConvert(document.getElementById("date").value),
     uniform: document.getElementById("uniformtype").value,
     location: document.getElementById('location').value,
     time: document.getElementById('time').value,
     custom: document.getElementById('custommessage').value
   }
-  sendData("nextEvent/", array);
+  sendData("nextevent/", array);
   document.getElementById('date').value = '';
   document.getElementById('uniformtype').value = '';
   document.getElementById('time').value = '';
